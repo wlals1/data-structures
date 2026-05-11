@@ -1,0 +1,20 @@
+# Object files
+*.o
+*.a
+
+# Executables
+test
+*.out
+
+# Editor / IDE
+*.swp
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debugging
+core
+vgcore.*
