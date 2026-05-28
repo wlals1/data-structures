@@ -6,16 +6,16 @@ memory safety, and clear documentation.
 
 ## Implementations
 
-| Data Structure | Status   | Operations                          |
-|----------------|----------|-------------------------------------|
-| AVL Tree       | Complete | insert, delete, search, destroy     |
-| 2-3 Tree       | Complete | insert, delete, search, destroy     |
+| Data Structure  | Status   | Operations                          |
+|-----------------|----------|-------------------------------------|
+| AVL Tree        | Complete | insert, delete, search, destroy     |
+| 2-3 Tree        | Complete | insert, delete, search, destroy     |
+| Red-Black Tree  | Complete | insert, delete, search, destroy     |
 
 ## Planned
 
 - Dynamic array (vector) — `realloc`, amortized analysis
 - Hash table — chaining + open addressing
-- Red-Black tree — Linux kernel rbtree model
 - B-tree — DB index, filesystem
 
 ## Build conventions
