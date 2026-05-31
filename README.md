@@ -11,6 +11,7 @@ memory safety, and clear documentation.
 | AVL Tree        | Complete | insert, delete, search, destroy     |
 | 2-3 Tree        | Complete | insert, delete, search, destroy     |
 | Red-Black Tree  | Complete | insert, delete, search, destroy     |
+| Trie            | Complete | insert, delete, search, destroy     |
 
 ## Planned
 
