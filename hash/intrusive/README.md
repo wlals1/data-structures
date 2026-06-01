@@ -108,8 +108,17 @@ all the types it stores.
 | Search    | O(1)    | O(n)       |
 | Delete    | O(1)    | O(n)       |
 
-Insert is unconditionally O(1) (head insertion, no allocation). Search and
-delete walk one bucket's chain, so they degrade as α rises and chains grow.
+Insert is unconditionally O(1) because it does **no duplicate-key check** —
+it just links the node at the head of its bucket and returns, without
+walking the chain. The trade-off is that **duplicate keys are allowed**:
+inserting the same key twice leaves two nodes in the chain, and `ht_search`
+returns whichever it reaches first. Adding a duplicate check (to update or
+reject) would require walking the chain, making insert O(n) in the worst
+case like search.
+
+Search and delete walk one bucket's chain, so they degrade as α rises and
+chains grow. The worst case is O(n) when every key collides into one bucket
+(a degenerate hash), turning the chain into a length-n linked list.
 
 ## Files
 
