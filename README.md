@@ -15,6 +15,13 @@ memory safety, and clear documentation.
 | Hash Table (generic) | Complete | chaining + open addressing, library owns nodes  |
 | Hash Table (intrusive)| Complete | `container_of`, kernel-style, caller owns nodes |
 | k-d Tree             | Complete | insert, nearest-neighbor search with pruning    |
+| B-Tree               | Complete | insert, delete, search, destroy; top-down       |
+
+The B-tree is parameterized by minimum degree `T` and runs both insert and
+delete top-down (split full children / refill minimum-size children on the
+way down), so structural fixups never propagate back up. It generalizes the
+2-3 tree to arbitrary branching factor; using `T` rather than the order `M`
+forces an even maximum child count, keeping splits symmetric.
 
 The two hash tables live under `hash/` and share one interface but differ in
 who owns the nodes: the generic version allocates and copies keys/values
@@ -26,8 +33,6 @@ caller's own struct (the pattern the Linux kernel uses for `list_head`,
 
 - Dynamic array (vector) — `realloc`, amortized analysis
 - Min/max heap — binary heap, `heapify`, priority queue
-- B-tree — DB index, filesystem on-disk layout
-- Graph — adjacency list, BFS/DFS, shortest paths
 - Skip list — probabilistic balancing as an alternative to balanced BSTs
 
 ## Build conventions
@@ -57,7 +62,8 @@ data-structures/
 ├── hash/
 │   ├── generic/      # library owns nodes, copies key/value
 │   └── intrusive/    # caller owns nodes, container_of
-└── kd-tree/
+├── kd-tree/
+└── b-tree/
 ```
 
 ## Environment
